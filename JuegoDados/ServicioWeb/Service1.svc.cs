@@ -12,6 +12,17 @@ namespace ServicioWeb
     // NOTE: para iniciar el Cliente de prueba WCF para probar este servicio, seleccione Service1.svc o Service1.svc.cs en el Explorador de soluciones e inicie la depuración.
     public class Service1 : IService1
     {
+        public List<int> GetDado(CompositeType composite)
+        {
+            Random random = new Random();
+            for (int i = 0; i < 6; i++)
+            {
+                composite.Dados.Add(random.Next(1, 6));
+            }
+
+            return composite.Dados;
+        }
+
         public string GetData(int value)
         {
             return string.Format("You entered: {0}", value);
